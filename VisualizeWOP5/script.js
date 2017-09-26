@@ -6,7 +6,6 @@ window.onload = function(){
     canvas.height = window.innerHeight;
     document.body.appendChild(canvas);
     ctx = canvas.getContext('2d');
-    
     setupWebAudio();
     draw();
 }
@@ -33,10 +32,10 @@ function draw(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     //ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    var dif = canvas.width / (freqByteData.length / 12);
+    var dif = canvas.width / (freqByteData.length / 5);
     
-    for(var i = 1; i < freqByteData.length; i += 12){
+    for(var i = 1; i < freqByteData.length; i += 10){
         ctx.fillStyle = "rgb(" + freqByteData[i] + "," + freqByteData[i] + "," + freqByteData[i] + ")";
-        ctx.fillRect(i, canvas.height / 2 - freqByteData[i], dif - 3, canvas.height / 2);
+        ctx.fillRect(i * 1.4, canvas.height / 2 - freqByteData[i], dif, canvas.height / 2);
     }
 }
